@@ -25,6 +25,9 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.ad_title
+            
 class Cart(models.Model):
     quantity = models.IntegerField()
     total_cost = models.IntegerField()
