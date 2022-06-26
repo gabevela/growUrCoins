@@ -1,0 +1,23 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>View All the Listings</h1>
+
+{% for Growurcoin in growurcoins %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ Growurcoin.name }}</span>
+      <p>Breed: {{ Growurcoin.breed }}</p>
+      <p>Description: {{ Growurcoin.description }}</p>
+      {% if cat.age > 0 %}
+        <p>Age: {{ Growurcoin.age }}</p>
+      {% else %}
+        <p>Age: Kitten</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
