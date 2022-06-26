@@ -5,19 +5,32 @@
 
 <h1>View All the Listings</h1>
 
-{% for Growurcoin in growurcoins %}
+{% for Ad in ad %}
   <div class="card">
     <div class="card-content">
-      <span class="card-title">{{ Growurcoin.name }}</span>
-      <p>Breed: {{ Growurcoin.breed }}</p>
-      <p>Description: {{ Growurcoin.description }}</p>
-      {% if cat.age > 0 %}
-        <p>Age: {{ Growurcoin.age }}</p>
+      <span class="card-title">{{ Ad.ad_title }}</span>
+      <p>Coins: {{ Ad.coins }}</p>
+      <p>Description: {{ Ad.description }}</p>
+      <p>Offer Date: {{ Ad.offer_date }}</p>
+      <p>Expiry Date: {{ Ad.expiry_date }}</p>
+      <p>Stock: {{ Ad.stock_inventory }}</p>
+      <p>Category: {{ Ad.category }}</p>
+      <p>Street Number: {{ Ad.street_number }}</p>
+      <p>Street Name: {{ Ad.street_name }}</p>
+      <p>City: {{ Ad.city }}</p>
+      <p>Postal Code: {{ Ad.postal_code }}</p>
+      <img src="tomatoes.jpg" alt="Tomatoes" >
+
+      <!-- {% if cat.age > 0 %}
+        <p>Age: {{ Ad.age }}</p>
       {% else %}
         <p>Age: Kitten</p>
-      {% endif %}
+      {% endif %} -->
     </div>
   </div>
 {% endfor %}
 
 {% endblock %}
+
+
+

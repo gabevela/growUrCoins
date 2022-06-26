@@ -1,20 +1,23 @@
 from django.shortcuts import render
+from .models import Ad
 
 # Add the following import
 from django.http import HttpResponse
 
-class Growurcoin:  # Note that parens are optional if not inheriting from another class
-  def __init__(self, name, breed, description, age):
-    self.name = name
-    self.breed = breed
-    self.description = description
-    self.age = age
+#logic to add classes instead
 
-growurcoins = [
-Growurcoin('Lolo', 'tabby', 'foul little demon', 3),
-Growurcoin('Sachi', 'tortoise shell', 'diluted tortoise shell', 0),
-Growurcoin('Raven', 'black tripod', '3 legged cat', 4),
-]
+# class Growurcoin:  # Note that parens are optional if not inheriting from another class
+#   def __init__(self, name, breed, description, age):
+#     self.name = name
+#     self.breed = breed
+#     self.description = description
+#     self.age = age
+
+# growurcoins = [
+# Growurcoin('Lolo', 'tabby', 'foul little demon', 3),
+# Growurcoin('Sachi', 'tortoise shell', 'diluted tortoise shell', 0),
+# Growurcoin('Raven', 'black tripod', '3 legged cat', 4),
+# ]
 
 # Define the home view
 def home(request):
@@ -25,4 +28,7 @@ def about(request):
 #   return HttpResponse('<h1>About the GrowUrCoins</h1>')
 
 def grow_index(request):
-  return render(request, 'growurcoins/index.html', { 'growurcoins': growurcoins })
+    ad = Ad.objects.all()
+    print(ad)
+    return render(request, 'growurcoins/index.html', { 'ad': ad })
+
