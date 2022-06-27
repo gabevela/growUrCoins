@@ -4,6 +4,9 @@ from . import views
 urlpatterns = [
  path('', views.home, name='home'),
  path('about/', views.about, name='about'),
- path('growurcoins/', views.grow_index, name='index'),
+ path('growurcoins/', views.grow_index, name='index'), #shows the index of all Ads
+ path('growurcoins/<int:ad_id>', views.grow_details, name='details'),   #Details of a specific Ad
+ path('growurcoins/new', views.grow_new, name='new'), # url to show "create ad" form
+ path('growurcoins/create', views.grow_create, name='create'), #this will save the "create ad" form into the database
 
 ]
