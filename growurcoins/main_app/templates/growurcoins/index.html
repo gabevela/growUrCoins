@@ -8,7 +8,8 @@
 {% for Ad in ad %}
   <div class="card">
     <div class="card-content">
-      <a href="/growurcoins/{{ Ad.id }}">
+    <a href="/growurcoins/{{ Ad.id }}">
+
         <span class="card-title">{{ Ad.ad_title }}</span>
         <p>Coins: {{ Ad.coins }}</p>
         <p>Description: {{ Ad.description }}</p>
@@ -20,7 +21,7 @@
         <p>Street Name: {{ Ad.street_name }}</p>
         <p>City: {{ Ad.city }}</p>
         <p>Postal Code: {{ Ad.postal_code }}</p>
-        <img src="../templates/growurcoins/tomatoes.jpg" alt="Tomatoes">
+        <img src="../../templates/growurcoins/tomatoes.jpg" alt="tomatoes**">
 
       <!-- {% if cat.age > 0 %}
         <p>Age: {{ Ad.age }}</p>

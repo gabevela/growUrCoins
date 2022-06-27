@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Ad
+import datetime
 
 # Add the following import
 from django.http import HttpResponse
@@ -63,5 +64,5 @@ def grow_create(request):
                        city = request.POST['city'],
                        postal_code = request.POST['postal_code'],
                        )
-     return redirect('/growurcoins') 
+     return redirect('/growurcoins') #redirect index page.
 
