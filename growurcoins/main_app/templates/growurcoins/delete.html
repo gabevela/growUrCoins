@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1> Are you sure you want to delete {{ ad.ad_title }}</h1>
+
+<!-- <form method="POST" action='growurcoins/{{ad.id}}/delete'>
+ {% csrf_token %}
+  <button>Delete</button>
+  <a href="{% url 'details' ad.id %}">Cancel</a>
+</form> -->
+
+<form method="POST" action='{{ad.id}}/delete'>
+    {% csrf_token %}
+     <button>Delete</button>
+     <a href="/growurcoins/">Back</a>
+   </form>
+
+{% endblock %}
+
+
