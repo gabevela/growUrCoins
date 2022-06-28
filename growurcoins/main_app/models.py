@@ -1,5 +1,5 @@
 from django.db import models
-from platformdirs import user_config_dir
+# from platformdirs import user_config_dir
 from django.contrib.auth.models import User
 
 # Create your models here.
