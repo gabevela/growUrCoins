@@ -8,5 +8,6 @@ urlpatterns = [
  path('growurcoins/<int:ad_id>', views.grow_details, name='details'),   #Details of a specific Ad
  path('growurcoins/new', views.grow_new, name='new'), # url to show "create ad" form
  path('growurcoins/create', views.grow_create, name='create'), #this will save the "create ad" form into the database
+ path('growurcoins/<int:ad_id>/delete', views.grow_delete, name='delete'),   #Delete a specific Ad
 
 ]

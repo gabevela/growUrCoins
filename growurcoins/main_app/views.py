@@ -5,21 +5,6 @@ import datetime
 # Add the following import
 from django.http import HttpResponse
 
-#logic to add classes instead
-
-# class Growurcoin:  # Note that parens are optional if not inheriting from another class
-#   def __init__(self, name, breed, description, age):
-#     self.name = name
-#     self.breed = breed
-#     self.description = description
-#     self.age = age
-
-# growurcoins = [
-# Growurcoin('Lolo', 'tabby', 'foul little demon', 3),
-# Growurcoin('Sachi', 'tortoise shell', 'diluted tortoise shell', 0),
-# Growurcoin('Raven', 'black tripod', '3 legged cat', 4),
-# ]
-
 # Define the home view
 def home(request):
     return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
@@ -66,3 +51,9 @@ def grow_create(request):
                        )
      return redirect('/growurcoins') #redirect index page.
 
+#controller to delete the Ad
+def grow_delete(request, ad_id):
+    ad = Ad.objects.get(id=ad_id)
+    ad.delete()
+    return render(request, 'growurcoins/delete.html', {"ad": ad})
+  
