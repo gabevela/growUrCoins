@@ -12,3 +12,4 @@ urlpatterns = [
  path('growurcoins/<int:ad_id>/add_photo/', views.add_photo, name='add_photo'), #add photo in new 
 
 ]
+

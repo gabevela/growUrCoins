@@ -67,7 +67,6 @@ def grow_create(request):
         filename = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
         # just in case something goes wrong
         try:
-    
             s3.upload_fileobj(photo_file, BUCKET, filename)
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{filename}"
