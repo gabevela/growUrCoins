@@ -3,3 +3,5 @@
   <button>Delete</button>
   <a href="{% url 'details' ad.id %}">Cancel</a>
 </form> -->
+
+welcome abord
