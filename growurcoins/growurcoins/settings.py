@@ -78,12 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'growurcoins',
-<<<<<<< HEAD
-           }
-=======
         
     }
->>>>>>> 2738ab1660f856e6e6db6433b517b3db2ba3f8c7
 }
 
 
