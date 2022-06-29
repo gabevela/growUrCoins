@@ -1,5 +1,4 @@
 from django.db import models
-# from platformdirs import user_config_dir
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -37,12 +36,3 @@ class Cart(models.Model):
 class Reviews(models.Model):
     ratings = models.IntegerField()
     feedback = models.TextField(max_length=250)
-
-#class User(models.Model):
-#     username = models.CharField(15)
-#     password = models.CharField(8)
-#     email = models.CharField(50)
-#     first_name = models.CharField(15)
-#     last_name = models.CharField(15)
-#     # cart_id:models.IntegerField()  #FK of Cart table
-#     # coins
