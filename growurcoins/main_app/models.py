@@ -1,5 +1,4 @@
 from django.db import models
-# from platformdirs import user_config_dir
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -24,6 +23,8 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     street_name = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=100)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
 
     def __str__(self):
         return self.ad_title
@@ -43,12 +44,3 @@ class Cart(models.Model):
 class Reviews(models.Model):
     ratings = models.IntegerField()
     feedback = models.TextField(max_length=250)
-
-#class User(models.Model):
-#     username = models.CharField(15)
-#     password = models.CharField(8)
-#     email = models.CharField(50)
-#     first_name = models.CharField(15)
-#     last_name = models.CharField(15)
-#     # cart_id:models.IntegerField()  #FK of Cart table
-#     # coins

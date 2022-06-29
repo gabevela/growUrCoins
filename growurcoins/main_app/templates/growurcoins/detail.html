@@ -19,18 +19,16 @@
     <p>City: {{ ad.city }}</p>
     <p>Postal Code: {{ ad.postal_code }}</p>
 
+
     {% for photo in ad.photo_set.all %}
     <img class="responsive-img card-panel" src="{{photo.url}}" />
     {% empty %}
     <div class="card-panel teal-text center-align">No Photos Uploaded</div>
     {% endfor %}
-
-    <!-- {% if receipe.age > 0 %}
-      <p>Reviews: {{ receipe.reviews }}</p>
-    {% else %}
-      <p>Reviews: New Receipe!</p>
-    {% endif %} -->
   </div>
-</div>
+
+    </div>
+
+
 
 {% endblock %}
