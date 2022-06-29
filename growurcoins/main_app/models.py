@@ -23,7 +23,7 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     street_name = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=100)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     
 
     def __str__(self):
