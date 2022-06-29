@@ -3,3 +3,6 @@
   <button>Delete</button>
   <a href="{% url 'details' ad.id %}">Cancel</a>
 </form> -->
+
+ <!-- <img src="../templates/growurcoins/tomatoes.jpg" alt="Tomatoes"> -->
+ 
