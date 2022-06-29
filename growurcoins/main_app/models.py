@@ -27,6 +27,12 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
 
     def __str__(self):
         return self.ad_title
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    ad = models.ForeignKey(Ad, on_delete=models.CASCADE)
+    def __str__(self):
+        return f"Photo for ad_id: {self.ad_id} @{self.url}"
             
 class Cart(models.Model):
     quantity = models.IntegerField()
