@@ -6,8 +6,9 @@
 
 <form method="POST" action='{{ad.id}}/delete'>
     {% csrf_token %}
-     <button>Delete</button>
-     <a href="/growurcoins/">Back</a>
+     <!-- <button>Delete</button> -->
+     <a href="{% url 'index' %}">Delete</a>  
+     
    </form>
 
 {% endblock %}
