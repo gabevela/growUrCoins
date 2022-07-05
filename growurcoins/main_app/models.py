@@ -2,6 +2,7 @@ from sre_parse import CATEGORIES
 from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 
@@ -29,15 +30,18 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=100)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     
-
     def __str__(self):
         return self.ad_title
 
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'cat_id': self.id})
+
 class Category(models.Model):
     category_name = models.CharField(max_length=20)
-    ad_id= models.ForeignKey(Ad, on_delete=models.CASCADE)
+    ad = models.ForeignKey(Ad, on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.category_name
 
