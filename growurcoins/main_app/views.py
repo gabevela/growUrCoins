@@ -38,6 +38,15 @@ def grow_details(request, ad_id):
     return render(request, 'growurcoins/detail.html', {"ad": ad} )
     # return HttpResponse("done")
 
+#controller to show listing categories
+def grow_category(request, category):
+    print("incoming wild card value is", category)
+    # ad = Ad.objects.get(id=ad_id)
+    # print(ad)
+    # print("The ad to be rendered is", ad)
+    return render(request, 'growurcoins/listing-category.html' )
+    # return HttpResponse("done")
+
 #controller to create a form for New Ad
 def grow_new(request):
     return render(request, 'growurcoins/new.html')
@@ -53,8 +62,7 @@ def grow_create(request):
                        expiry_date = request.POST['expiry_date'],
                        stock_inventory = request.POST['stock_inventory'],
                        category = request.POST['category'],
-                       street_number = request.POST['street_number'],
-                       street_name = request.POST['street_name'],
+                       address = request.POST['address'],
                        city = request.POST['city'],
                        postal_code = request.POST['postal_code'],
                        )
@@ -91,3 +99,10 @@ def add_photo(request, ad_id):
     #get photo sent by frontend 
 
     return redirect('detail', ad_id=ad_id)
+
+#controller to home categories
+def grow_home(request,):
+    return render(request, 'growurcoins/home.html')
+
+
+

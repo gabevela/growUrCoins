@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Home</h1>
+{% for names in CATEGORIES %}
+
+<a href="/growurcoins/listing/{{names}}"
+  ><div value="{{names}}">{{names}}</div>
+</a>
+{%endfor%} {% endblock %}

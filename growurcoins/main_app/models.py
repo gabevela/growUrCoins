@@ -1,3 +1,5 @@
+from sre_parse import CATEGORIES
+from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -9,6 +11,11 @@ from django.contrib.auth.models import User
 # ONE User will have MANY Ads (FK = user_id)
 # ONE User will have MANY REVIEWS(FK = user_id)
 
+CATEGORIES = (
+    "Green Beans",
+    "Lettuce", "Peas", "Carrots", "Cucumbers",
+)
+
 class Ad(models.Model): #this model is missing the FK, user_id from the usertable
     # user_id = models.  #this is the FK from the User table
     ad_title = models.CharField(max_length=15)
@@ -18,16 +25,21 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     expiry_date = models.DateField()
     stock_inventory = models.IntegerField()
     picture_one = models.URLField(max_length=200)
-    category = models.CharField(max_length=100)
-    street_number = models.CharField(max_length=100)
-    street_name = models.CharField(max_length=100)
+    category = models.CharField(choices=CATEGORIES),
+    address = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=100)
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
 
     def __str__(self):
         return self.ad_title
+
+class Category(models.Model):
+    category_name = models.CharField(max_length=20)
+    ad_id= models.ForeignKey(Ad, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.category_name
 
 class Photo(models.Model):
     url = models.CharField(max_length=200)
@@ -44,3 +56,5 @@ class Cart(models.Model):
 class Reviews(models.Model):
     ratings = models.IntegerField()
     feedback = models.TextField(max_length=250)
+
+
