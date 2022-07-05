@@ -1,6 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# from django.db import models
+# from django.urls import reverse
+# from datetime import date
+# # Import the User
+# from django.contrib.auth.models import User
+  
+
 # Create your models here.
 
 #Relationships: #always put the FK on many side.
@@ -10,12 +17,12 @@ from django.contrib.auth.models import User
 # ONE User will have MANY REVIEWS(FK = user_id)
 
 class Ad(models.Model): #this model is missing the FK, user_id from the usertable
-    # user_id = models.  #this is the FK from the User table
+    #user = models #.ForeignKey(User, on_delete=models.CASCADE)
     ad_title = models.CharField(max_length=15)
     coins = models.IntegerField()
     description = models.TextField(max_length=250)
     offer_date = models.DateField()
-    expiry_date = models.DateField()
+    expiry_date = models.DateField() 
     stock_inventory = models.IntegerField()
     picture_one = models.URLField(max_length=200)
     category = models.CharField(max_length=100)
@@ -23,7 +30,8 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     street_name = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=100)
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)   # <-- one user can have many ads 
+    # , default=1) <-- this asigns a defaul user id of '1' to existing ads)
 
     def __str__(self):
         return self.ad_title
@@ -43,3 +51,4 @@ class Cart(models.Model):
 class Reviews(models.Model):
     ratings = models.IntegerField()
     feedback = models.TextField(max_length=250)
+
