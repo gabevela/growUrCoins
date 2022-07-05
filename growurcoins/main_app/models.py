@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+#dummy comment 
+
 # Create your models here.
 
 #Relationships: #always put the FK on many side.
