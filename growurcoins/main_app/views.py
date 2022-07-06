@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from .models import Ad
 import datetime
 
+
+
 # Add the following import
 from django.http import HttpResponse
 
@@ -102,7 +104,7 @@ def add_photo(request, ad_id):
 
 #controller to home categories
 def grow_home(request,):
-    return render(request, 'growurcoins/home.html')
+    return render(request, 'growurcoins/home.html' )
 
 
 

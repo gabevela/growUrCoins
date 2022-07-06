@@ -26,7 +26,7 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     expiry_date = models.DateField()
     stock_inventory = models.IntegerField()
     picture_one = models.URLField(max_length=200)
-    category = models.CharField(choices=CATEGORIES),
+    category = models.CharField(max_length=200)
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=100)
@@ -37,13 +37,6 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'cat_id': self.id})
-
-class Category(models.Model):
-    category_name = models.CharField(max_length=20)
-    ad = models.ForeignKey(Ad, on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return self.category_name
 
 class Photo(models.Model):
     url = models.CharField(max_length=200)

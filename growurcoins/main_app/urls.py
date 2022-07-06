@@ -12,6 +12,4 @@ urlpatterns = [
     path('growurcoins/<int:ad_id>/delete', views.grow_delete, name='delete'),   #Delete a specific Ad
     path('growurcoins/<int:ad_id>/add_photo/', views.add_photo, name='add_photo'), #add photo in new
     path('growurcoins/listing/<str:category>', views.grow_category, name='details'),   #Details of a specific Ad
-
-
 ]
