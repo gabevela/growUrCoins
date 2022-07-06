@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,29 +16,47 @@
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper green darken-3">
-        
+
         <a href="/" class="left brand-logo">&nbsp;&nbsp;GrowUrCoins</a>
         <br>
-        
+
         <ul id="nav-mobile" class="right green-text text-darken-3">
-          
-          <li><a class="green-text text-darken-3" href="/about">About</a></li>
-          {% if user.is_authenticated %}
-            <li><a class="green-text text-darken-3" href="/growurcoins">Home</a></li>
-            <li><a class="green-text text-darken-3" href="/growurcoins/new">Profile</a></li>
-            <!-- new markup below -->
-            <li><a class="green-text text-darken-3" href="/growurcoins/new">Post Ad</a></li>
-            <li><a class="green-text text-darken-3" href="/growurcoins/new">My Cart</a></li>
-            <li><a class="green-text text-darken-3" href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
-            <li><a class="green-text text-darken-3" href="{% url 'login' %}">Log In</a></li>
-          {% endif %}          
-        </ul>
       </div>
     </nav>
   </header>
 
+  <ul id="slide-out" class="sidenav green-text text-darken-3">
+    <li>
+      <div class="user-view">
+        <div class="background">
+          <img src="https://imgur.com/9Rxz7ZO.png">
+        </div>
+        <a href="#user"><img class="circle" src="https://imgur.com/tHogCqP.png"></a>
+        <a href="#name"><span class="white-text name">Ruchita Chandhok</span></a>
+        <a href="#email"><span class="white-text email">chandhok.ruchita@gmail.com</span></a>
+      </div>
+    </li>
+    {% if user.is_authenticated %}
+    <li><a class="green-text text-darken-3" href="/growurcoins">Home</a></li>
+    <li><a class="green-text text-darken-3" href="/growurcoins/new">Profile</a></li>
+    <li><a class="green-text text-darken-3" href="/growurcoins/new">Post Ad</a></li>
+    <li><a class="green-text text-darken-3" href="/growurcoins/new">My Cart</a></li>
+    <li><a class="green-text text-darken-3" href="/about">About</a></li>
+    <li><a class="green-text text-darken-3" href="{% url 'logout' %}">Log Out</a></li>
+    {% else %}
+    <li><a class="green-text text-darken-3" href="{% url 'login' %}">Log In</a></li>
+    {% endif %}
+  </ul>
+
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+
+
+
   <main class="container">
+
+    <br>
+    <br>
     {% block content %}
     {% endblock %}
   </main>
@@ -46,5 +65,16 @@
     <div class="right green-text text-darken-3">All Rights Reserved, &copy; 2022 GrowUrCoins &nbsp;</div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+    });
+
+  </script>
+
 </body>
+
 </html>

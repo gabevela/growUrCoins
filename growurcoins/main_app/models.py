@@ -17,7 +17,6 @@ from django.contrib.auth.models import User
 # ONE User will have MANY REVIEWS(FK = user_id)
 
 class Ad(models.Model): #this model is missing the FK, user_id from the usertable
-    #user = models #.ForeignKey(User, on_delete=models.CASCADE)
     ad_title = models.CharField(max_length=15)
     coins = models.IntegerField()
     description = models.TextField(max_length=250)
@@ -31,7 +30,7 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)   # <-- one user can have many ads 
-    # , default=1) <-- this asigns a defaul user id of '1' to existing ads)
+    # default=1 <-- this asigns a defaul user id of '1' to existing ads
 
 
 
