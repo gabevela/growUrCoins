@@ -4,10 +4,12 @@
   <a href="{% url 'details' ad.id %}">Cancel</a>
 </form> -->
 
-
 welcome abord
 
+ <!-- <img src="../templates/growurcoins/tomatoes.jpg" alt="Tomatoes"> -->
+
+# welcome abord
 
  <!-- <img src="../templates/growurcoins/tomatoes.jpg" alt="Tomatoes"> -->
- 
 
+> > > > > > > colin

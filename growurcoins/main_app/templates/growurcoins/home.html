@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Home</h1>
+{% for category in listCategories %}
+<a href="/growurcoins/listing/{{category}}">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title"> {{category}} </span>
+    </div>
+  </div>
+</a>
+{%endfor%} {% endblock %}
