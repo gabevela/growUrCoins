@@ -1,3 +1,6 @@
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+
 from fileinput import filename
 from django.shortcuts import render, redirect
 from .models import Ad
@@ -57,8 +60,12 @@ def grow_create(request):
                        street_name = request.POST['street_name'],
                        city = request.POST['city'],
                        postal_code = request.POST['postal_code'],
+
+                       #how do i add the user id?
+                       user = request.user
                        )
-                       
+      
+    
      photo_file = request.FILES.get('photo-file',None)
      print(photo_file, "*****")
      if photo_file:

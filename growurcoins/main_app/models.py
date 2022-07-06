@@ -33,6 +33,8 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)   # <-- one user can have many ads 
     # , default=1) <-- this asigns a defaul user id of '1' to existing ads)
 
+
+
     def __str__(self):
         return self.ad_title
 
