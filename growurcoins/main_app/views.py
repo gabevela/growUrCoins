@@ -43,10 +43,12 @@ def grow_details(request, ad_id):
 #controller to show listing categories
 def grow_category(request, category):
     print("incoming wild card value is", category)
+    Ads_in_category = Ad.objects.filter(category__contains=category)
+    print(Ads_in_category)
     # ad = Ad.objects.get(id=ad_id)
     # print(ad)
     # print("The ad to be rendered is", ad)
-    return render(request, 'growurcoins/listing-category.html' )
+    return render(request, 'growurcoins/listing-category.html', {"Ads_in_category":Ads_in_category})
     # return HttpResponse("done")
 
 #controller to create a form for New Ad
@@ -104,7 +106,9 @@ def add_photo(request, ad_id):
 
 #controller to home categories
 def grow_home(request,):
-    return render(request, 'growurcoins/home.html' )
+    listCategories = Ad.objects.values_list('category', flat=True).distinct()
+    print(listCategories)
+    return render(request, 'growurcoins/home.html',{"listCategories" : listCategories})
 
 
 

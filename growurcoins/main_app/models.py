@@ -11,11 +11,11 @@ from django.urls import reverse
 # ONE User will have ONE Cart
 # ONE User will have MANY Ads (FK = user_id)
 # ONE User will have MANY REVIEWS(FK = user_id)
-
 CATEGORIES = (
     "Green Beans",
     "Lettuce", "Peas", "Carrots", "Cucumbers",
 )
+
 
 class Ad(models.Model): #this model is missing the FK, user_id from the usertable
     # user_id = models.  #this is the FK from the User table
