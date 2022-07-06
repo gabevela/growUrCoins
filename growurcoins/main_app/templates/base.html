@@ -46,6 +46,7 @@
     <li><a class="green-text text-darken-3" href="/growurcoins/new">My Cart</a></li>
     <li><a class="green-text text-darken-3" href="{% url 'logout' %}">Log Out</a></li>
     {% else %}
+    <li><a class="green-text text-darken-3" href="{% url 'signup' %}">Sign Up</a></li>
     <li><a class="green-text text-darken-3" href="{% url 'login' %}">Log In</a></li>
     {% endif %}
   </ul>
