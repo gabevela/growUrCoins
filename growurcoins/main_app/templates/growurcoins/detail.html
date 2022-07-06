@@ -19,9 +19,13 @@
     <p>City: {{ ad.city }}</p>
     <p>Postal Code: {{ ad.postal_code }}</p>
 
+    {% if user.is_authenticated %}
     <div class="card-action">
       <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete</a>      
     </div>
+    {% else %}
+    <p>Please Log In to Delete this Ad</p>
+    {% endif %}
 
 
     {% for photo in ad.photo_set.all %}
