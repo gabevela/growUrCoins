@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Ad Details</h1>
+<h6 class="green-text text-darken-3">Ad Details</h6>
 
 <div class="card">
   <div class="card-content">
@@ -20,7 +20,7 @@
     <p>Postal Code: {{ ad.postal_code }}</p>
 
     <div class="card-action">
-      <a href="{% url 'delete' ad.id %}">Delete</a>      
+      <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete</a>      
     </div>
 
 

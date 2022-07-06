@@ -18,20 +18,8 @@
         
         <a href="/" class="left brand-logo">&nbsp;&nbsp;GrowUrCoins</a>
         <br>
-     </div>
-     </nav>
-    </header>
-
-        <ul id="slide-out" class="sidenav green-text text-darken-3">
-          <li><div class="user-view">
-            <div class="background">
-              <img src="./images/office.jpg">
-            </div>
-            <a href="#user"><img class="circle" src="./images/tomatoes.jpg"></a>
-            <a href="#name"><span class="white-text name">Ruchita Chandhok</span></a>
-            <a href="#email"><span class="white-text email">chandhok.ruchita@gmail.com</span></a>
-          </div></li>
-
+        
+        <ul id="nav-mobile" class="right green-text text-darken-3">
           <li><a class="green-text text-darken-3" href="/growurcoins">Home</a></li>
           <li><a class="green-text text-darken-3" href="/growurcoins/new">Profile</a></li>
           <!-- new markup below -->
@@ -40,12 +28,10 @@
           <li><a class="green-text text-darken-3" href="/about">About</a></li>
           
         </ul>
-  
-    </ul>
-    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
-   
+      </div>
+    </nav>
+  </header>
 
-        
   <main class="container">
 
     <br>
@@ -53,16 +39,6 @@
     {% block content %}
     {% endblock %}
   </main>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script>
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems);
-  });
-
-</script>
 
   <footer class="page-footer">
     <div class="right green-text text-darken-3">All Rights Reserved, &copy; 2022 GrowUrCoins &nbsp;</div>
