@@ -34,8 +34,6 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 
-
-
 #amazon bucket
 S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
 BUCKET= 'growurcoinsbucket'
