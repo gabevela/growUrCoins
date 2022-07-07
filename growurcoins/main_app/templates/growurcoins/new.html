@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,8 +7,10 @@
     <title>Create Ad</title>
   </head>
 
-  <body>
-    Here is a form - Please Create your Ad:
+  <body> -->
+    {% extends 'base.html' %} {% block content %}
+
+    <h6 class="green-text text-darken-3">Here is a form - Please Create your Ad:</h6>
     <form
       method="POST"
       action="/growurcoins/create"
@@ -108,5 +110,8 @@
 
       <button type="submit">Submit Ad</button>
     </form>
-  </body>
-</html>
+    {% endblock %}
+
+  <!-- </body> -->
+
+<!-- </html> -->
