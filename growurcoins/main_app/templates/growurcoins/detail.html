@@ -23,7 +23,7 @@
       <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete</a>      
     </div>
     {% else %}
-    <p>Please Log In to Delete this Ad</p>
+    <p>Please Log In to Edit this Ad</p>
     {% endif %}
 
     {% for photo in ad.photo_set.all %}

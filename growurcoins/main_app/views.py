@@ -123,7 +123,6 @@ def grow_delete(request, ad_id):
     ad.delete()
     return render(request, 'growurcoins/delete.html', {"ad": ad})
 
-
 #controller to add photo
 def add_photo(request, ad_id):
     #get photo sent by frontend 
@@ -135,6 +134,3 @@ def grow_home(request,):
     listCategories = Ad.objects.values_list('category', flat=True).distinct()
     print(listCategories)
     return render(request, 'growurcoins/home.html',{"listCategories" : listCategories})
-
-
-
