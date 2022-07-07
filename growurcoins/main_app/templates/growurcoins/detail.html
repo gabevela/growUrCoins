@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Ad Details</h1>
+<h6 class="green-text text-darken-3">Ad Details</h6>
 
 <div class="card">
   <div class="card-content">
@@ -14,11 +14,17 @@
     <p>Expiry Date: {{ ad.expiry_date }}</p>
     <p>Stock: {{ ad.stock_inventory }}</p>
     <p>Category: {{ ad.category }}</p>
-    <p>Street Number: {{ ad.street_number }}</p>
-    <p>Street Name: {{ ad.street_name }}</p>
+    <p>Address: {{ ad.address }}</p>
     <p>City: {{ ad.city }}</p>
     <p>Postal Code: {{ ad.postal_code }}</p>
 
+    {% if user.is_authenticated %}
+    <div class="card-action">
+      <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete</a>      
+    </div>
+    {% else %}
+    <p>Please Log In to Edit this Ad</p>
+    {% endif %}
 
     {% for photo in ad.photo_set.all %}
     <img class="responsive-img card-panel" src="{{photo.url}}" />
@@ -26,9 +32,6 @@
     <div class="card-panel teal-text center-align">No Photos Uploaded</div>
     {% endfor %}
   </div>
-
-    </div>
-
-
+</div>
 
 {% endblock %}

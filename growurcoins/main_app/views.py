@@ -1,7 +1,12 @@
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+
 from fileinput import filename
 from django.shortcuts import render, redirect
 from .models import Ad
 import datetime
+
+
 
 # Add the following import
 from django.http import HttpResponse
@@ -10,6 +15,26 @@ from django.http import HttpResponse
 import uuid
 import boto3
 from .models import Ad, Photo
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in via code
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
+
 
 #amazon bucket
 S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
@@ -38,6 +63,17 @@ def grow_details(request, ad_id):
     return render(request, 'growurcoins/detail.html', {"ad": ad} )
     # return HttpResponse("done")
 
+#controller to show listing categories
+def grow_category(request, category):
+    print("incoming wild card value is", category)
+    Ads_in_category = Ad.objects.filter(category__contains=category)
+    print(Ads_in_category)
+    # ad = Ad.objects.get(id=ad_id)
+    # print(ad)
+    # print("The ad to be rendered is", ad)
+    return render(request, 'growurcoins/listing-category.html', {"Ads_in_category":Ads_in_category})
+    # return HttpResponse("done")
+
 #controller to create a form for New Ad
 def grow_new(request):
     return render(request, 'growurcoins/new.html')
@@ -53,12 +89,15 @@ def grow_create(request):
                        expiry_date = request.POST['expiry_date'],
                        stock_inventory = request.POST['stock_inventory'],
                        category = request.POST['category'],
-                       street_number = request.POST['street_number'],
-                       street_name = request.POST['street_name'],
+                       address = request.POST['address'],
                        city = request.POST['city'],
                        postal_code = request.POST['postal_code'],
+
+                       #how do i add the user id?
+                       user = request.user
                        )
-                       
+      
+    
      photo_file = request.FILES.get('photo-file',None)
      print(photo_file, "*****")
      if photo_file:
@@ -67,7 +106,6 @@ def grow_create(request):
         filename = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
         # just in case something goes wrong
         try:
-    
             s3.upload_fileobj(photo_file, BUCKET, filename)
             # build the full url string
             url = f"{S3_BASE_URL}{BUCKET}/{filename}"
@@ -85,9 +123,14 @@ def grow_delete(request, ad_id):
     ad.delete()
     return render(request, 'growurcoins/delete.html', {"ad": ad})
 
-
 #controller to add photo
 def add_photo(request, ad_id):
     #get photo sent by frontend 
 
     return redirect('detail', ad_id=ad_id)
+
+#controller to home categories
+def grow_home(request,):
+    listCategories = Ad.objects.values_list('category', flat=True).distinct()
+    print(listCategories)
+    return render(request, 'growurcoins/home.html',{"listCategories" : listCategories})
