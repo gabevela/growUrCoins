@@ -15,7 +15,6 @@ CATEGORIES = (
 )
 
 class Ad(models.Model): #this model is missing the FK, user_id from the usertable
-    # user_id = models.  #this is the FK from the User table
     ad_title = models.CharField(max_length=15)
     coins = models.IntegerField()
     description = models.TextField(max_length=250)
@@ -43,13 +42,11 @@ class Photo(models.Model):
         return f"Photo for ad_id: {self.ad_id} @{self.url}"
             
 class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    ad = models.ForeignKey(Ad, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     total_cost = models.IntegerField()
-    # user_id: models.
-    # ad_id: 
 
 class Reviews(models.Model):
     ratings = models.IntegerField()
     feedback = models.TextField(max_length=250)
-
-
