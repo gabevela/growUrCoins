@@ -76,8 +76,7 @@ def grow_create(request):
                        expiry_date = request.POST['expiry_date'],
                        stock_inventory = request.POST['stock_inventory'],
                        category = request.POST['category'],
-                       street_number = request.POST['street_number'],
-                       street_name = request.POST['street_name'],
+                       address = request.POST['address'],
                        city = request.POST['city'],
                        postal_code = request.POST['postal_code'],
 
