@@ -11,4 +11,7 @@ urlpatterns = [
  path('growurcoins/<int:ad_id>/delete', views.grow_delete, name='delete'),   #Delete a specific Ad
  path('growurcoins/<int:ad_id>/add_photo/', views.add_photo, name='add_photo'), #add photo in new 
  path('accounts/signup/', views.signup, name='signup'),
+ path('growurcoins/listing/<str:category>', views.grow_category, name='details'), 
+ path('growurcoins/home', views.grow_home, name='home'), #shows the home of all categories
 ]
+

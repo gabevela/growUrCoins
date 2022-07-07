@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 from .models import Ad
 import datetime
 
+
+
 # Add the following import
 from django.http import HttpResponse
 
@@ -59,6 +61,17 @@ def grow_details(request, ad_id):
     print(ad)
     print("The ad to be rendered is", ad)
     return render(request, 'growurcoins/detail.html', {"ad": ad} )
+    # return HttpResponse("done")
+
+#controller to show listing categories
+def grow_category(request, category):
+    print("incoming wild card value is", category)
+    Ads_in_category = Ad.objects.filter(category__contains=category)
+    print(Ads_in_category)
+    # ad = Ad.objects.get(id=ad_id)
+    # print(ad)
+    # print("The ad to be rendered is", ad)
+    return render(request, 'growurcoins/listing-category.html', {"Ads_in_category":Ads_in_category})
     # return HttpResponse("done")
 
 #controller to create a form for New Ad
@@ -116,3 +129,12 @@ def add_photo(request, ad_id):
     #get photo sent by frontend 
 
     return redirect('detail', ad_id=ad_id)
+
+#controller to home categories
+def grow_home(request,):
+    listCategories = Ad.objects.values_list('category', flat=True).distinct()
+    print(listCategories)
+    return render(request, 'growurcoins/home.html',{"listCategories" : listCategories})
+
+
+

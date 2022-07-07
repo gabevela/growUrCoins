@@ -1,33 +1,23 @@
-
-
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 
 <h6 class="green-text text-darken-3" >View All the Ad Listings</h6>
 
 {% for Ad in ad %}
-  <div class="card">
-    <div class="card-content">
+<div class="card">
+  <div class="card-content">
     <a href="/growurcoins/{{ Ad.id }}">
-
-        <span class="card-title">{{ Ad.ad_title }}</span>
-        <p>Coins: {{ Ad.coins }}</p>
-        <p>Description: {{ Ad.description }}</p>
-        <p>Offer Date: {{ Ad.offer_date }}</p>
-        <p>Expiry Date: {{ Ad.expiry_date }}</p>
-        <p>Stock: {{ Ad.stock_inventory }}</p>
-        <p>Category: {{ Ad.category }}</p>
-        <p>Street Number: {{ Ad.street_number }}</p>
-        <p>Street Name: {{ Ad.street_name }}</p>
-        <p>City: {{ Ad.city }}</p>
-        <p>Postal Code: {{ Ad.postal_code }}</p>
-    
-       </div>
+      <span class="card-title">{{ Ad.ad_title }}</span>
+      <p>Coins: {{ Ad.coins }}</p>
+      <p>Description: {{ Ad.description }}</p>
+      <p>Offer Date: {{ Ad.offer_date }}</p>
+      <p>Expiry Date: {{ Ad.expiry_date }}</p>
+      <p>Stock: {{ Ad.stock_inventory }}</p>
+      <p>Category: {{ Ad.category }}</p>
+      <p>Address: {{ Ad.address }}</p>
+      <p>City: {{ Ad.city }}</p>
+      <p>Postal Code: {{ Ad.postal_code }}</p>
+    </a>
   </div>
-{% endfor %}
-
-{% endblock %}
-
-
-
+</div>
+{% endfor %} {% endblock %}

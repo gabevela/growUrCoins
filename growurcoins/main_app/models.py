@@ -4,12 +4,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-#dummy comment 
-
-#dummy comment 
-
-# Create your models here.
-
 #Relationships: #always put the FK on many side.
 # ONE Cart will have MANY Ads (FK = cart_id)
 # ONE User will have ONE Cart
@@ -19,7 +13,6 @@ CATEGORIES = (
     "Green Beans",
     "Lettuce", "Peas", "Carrots", "Cucumbers",
 )
-
 
 class Ad(models.Model): #this model is missing the FK, user_id from the usertable
     # user_id = models.  #this is the FK from the User table
@@ -36,8 +29,6 @@ class Ad(models.Model): #this model is missing the FK, user_id from the usertabl
     postal_code = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)   # <-- one user can have many ads 
     # default=1 <-- this asigns a defaul user id of '1' to existing ads
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)    
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.ad_title

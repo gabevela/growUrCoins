@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Ad Details</h1>
+{% for ad in Ads_in_category %}
+<a href="/growurcoins/{{ ad.id }}">
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ ad.ad_title }}</span>
+    <p>Coins: {{ ad.coins }}</p>
+    <p>Offer Date: {{ ad.offer_date }}</p>
+    <p>Expiry Date: {{ ad.expiry_date }}</p>
+    <p>Stock: {{ ad.stock_inventory }}</p>
+
+    {% for photo in ad.photo_set.all %}
+    <img class="responsive-img card-panel" src="{{photo.url}}" />
+    {% empty %}
+    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+    {% endfor %} {%endfor%}
+</a>
+  </div>
+</div>
+
+{% endblock %}
