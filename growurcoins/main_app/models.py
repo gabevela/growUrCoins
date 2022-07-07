@@ -43,9 +43,9 @@ class Photo(models.Model):
             
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    ad = models.ForeignKey(Ad, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=1)
-    total_cost = models.IntegerField(default=1)
+    #ad = models.ForeignKey(Ad, on_delete=models.CASCADE)
+    #quantity = models.IntegerField(default=1)
+    #total_cost = models.IntegerField(default=1)
 
 class Reviews(models.Model):
     ratings = models.IntegerField()
