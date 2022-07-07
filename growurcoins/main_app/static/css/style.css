@@ -8,6 +8,8 @@
     min-height: 100vh;
     flex-direction: column;
     background-color:#f0e6dc; 
+    /* background-image: url("../images/2.png"); */
+    background-image: url(“static/css/22.png”);
   }
   
   main {
