@@ -119,8 +119,8 @@ def grow_add_to_cart(request):
      mycart = Cart.objects.create(
                         
                         user = request.user,
-                        #ad = Ad.objects.get(id=ad_id)
-                        #ad = Ad.objects.get(id=1)
+                        ad = Ad.objects.get(id = 9)
+                        #ad = 9
                         )
      print("Add has been added to the cart!!!") 
      return redirect('/growurcoins') #redirect index page.
