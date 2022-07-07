@@ -1,3 +1,6 @@
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+
 from fileinput import filename
 from django.shortcuts import render, redirect
 from .models import Ad
@@ -10,6 +13,26 @@ from django.http import HttpResponse
 import uuid
 import boto3
 from .models import Ad, Photo
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in via code
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)
+
 
 #amazon bucket
 S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
@@ -53,12 +76,15 @@ def grow_create(request):
                        expiry_date = request.POST['expiry_date'],
                        stock_inventory = request.POST['stock_inventory'],
                        category = request.POST['category'],
-                       street_number = request.POST['street_number'],
-                       street_name = request.POST['street_name'],
+                       address = request.POST['address'],
                        city = request.POST['city'],
                        postal_code = request.POST['postal_code'],
+
+                       #how do i add the user id?
+                       user = request.user
                        )
-                       
+      
+    
      photo_file = request.FILES.get('photo-file',None)
      print(photo_file, "*****")
      if photo_file:
