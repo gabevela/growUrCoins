@@ -20,8 +20,9 @@
 
     {% if user.is_authenticated %}
     <div class="card-action">
-      <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete</a>      
+      <a href="{% url 'add_to_cart' %}" class="green-text text-darken-3">Add To My Cart</a>      
     </div>
+    <br>
     {% else %}
     <p>Please Log In to Edit this Ad</p>
     {% endif %}
@@ -31,6 +32,10 @@
     {% empty %}
     <div class="card-panel teal-text center-align">No Photos Uploaded</div>
     {% endfor %}
+
+    <div class="card-action">
+      <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete Add</a>      
+    </div>
   </div>
 </div>
 
