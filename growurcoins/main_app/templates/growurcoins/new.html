@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'base.html' %} {% block content %}
 
 <!-- <!DOCTYPE html>
@@ -8,23 +9,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Ad</title>
   </head> -->
+=======
+>>>>>>> 28a547938946b0b6ad66a99d184fdf69ab103037
 
-  <body>
-    Here is a form - Please Create your Ad:
+  {% extends 'base.html' %} 
+  {% block content %} 
+
+    <h6 class="green-text text-darken-3">Please Create your Ad:</h6>
     <form
       method="POST"
       action="/growurcoins/create"
-      enctype="multipart/form-data"
-    >
+      enctype="multipart/form-data">
+
       {% csrf_token %}
       <!-- making sure it is not a rando sending infor to your form data -->
       <br />
       <label for="ad_title">Ad Title: </label>
       <br />
-      <input
-        name="ad_title"
-        placeholder="Please enter the title of your ad"
-      /><br />
+      <input name="ad_title" placeholder="Please enter the title of your ad"/>
+      <br />
       <br />
 
       <label for="coins">Coins: </label>
@@ -67,11 +70,10 @@
       <br />
       <br />
       <br />
-
+    
       <label for="category">Category: </label>
-      <br />
-      <select name="category" placeholder="Please enter the category">
-        <option value="">--Please choose an option--</option>
+      <select name="category" id="category">
+        <option value="P">Please choose an option</option>
         <option value="Lettuce">Lettuce</option>
         <option value="Green Beans">Green Beans</option>
         <option value="Peas">Peas</option>
@@ -79,9 +81,8 @@
         <option value="Cucumbers">Cucumbers</option>
         <option value="Kale">Kale</option>
         <option value="Tomatoes">Tomatoes</option>
-
       </select>
-
+      
       <label for="address">Address: </label>
       <br />
       <input name="address" placeholder="Please enter the address" />
@@ -110,7 +111,12 @@
 
       <button type="submit">Submit Ad</button>
     </form>
+<<<<<<< HEAD
   </body>
 <!-- </html> -->
 
 {% endblock %}
+=======
+
+    {% endblock %}
+>>>>>>> 28a547938946b0b6ad66a99d184fdf69ab103037
