@@ -1,14 +1,12 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<p>Here are all the items in your Cart:</p>
-
-
-
+<p>Thank you for your order</p>
+<br>
 <br>
     {% csrf_token %}
      <!-- <button>Delete</button> -->
-     <a class="green-text text-darken-3" href="{% url 'thankyou' %}">Checkout</a>  
+     <a class="green-text text-darken-3" href="{% url 'index' %}">Click here to go to the ad listings</a>  
      
    </form>
 

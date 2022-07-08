@@ -15,6 +15,7 @@ urlpatterns = [
  path('growurcoins/home', views.grow_home, name='home'), #shows the home of all categories
  path('growurcoins/<int:ad_id>/add_to_cart', views.grow_add_to_cart, name='add_to_cart'), #this will save the "ad" into the logged in user's cart model in the database 
  path('growurcoins/cart', views.grow_cart, name='cart'), #this will take us to the cart  
- path('growurcoins/checkout', views.grow_checkout, name='checkout'), #this will checkout the cart   
+ path('growurcoins/checkout', views.grow_checkout, name='thankyou'), #this will checkout the cart   
+ #path('growurcoins/thankyou', views.grow_thankyou, name='thankyou'), #this will checkout the cart   
 
 ]
