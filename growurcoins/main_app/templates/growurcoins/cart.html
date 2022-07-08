@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<h6 class="green-text text-darken-3">Ad Details</h6>
+<h6 class="green-text text-darken-3">My Cart</h6>
 
 <div class="card">
   <div class="card-content">
@@ -18,23 +18,24 @@
     <p>City: {{ ad.city }}</p>
     <p>Postal Code: {{ ad.postal_code }}</p>
 
+    {% if user.is_authenticated %}
+    <div class="card-action">
+      <a href="{% url 'add_to_cart' %}" class="green-text text-darken-3">Add To My Cart</a>      
+    </div>
+    <br>
+    {% else %}
+    <p>Please Log In to Edit this Ad</p>
+    {% endif %}
+
     {% for photo in ad.photo_set.all %}
     <img class="responsive-img card-panel" src="{{photo.url}}" />
     {% empty %}
     <div class="card-panel teal-text center-align">No Photos Uploaded</div>
     {% endfor %}
 
-    {% if user.is_authenticated %}
     <div class="card-action">
-      <a href="{% url 'add_to_cart' ad.id %}" class="green-text text-darken-3">Add To My Cart</a>      
+      <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete Add</a>      
     </div>
-    <div class="card-action">
-      <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete Ad</a>     
-    </div>
-    <br>
-    {% else %}
-    <p>Please Log In to add this item to your Cart</p>
-    {% endif %}
   </div>
 </div>
 

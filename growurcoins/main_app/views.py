@@ -5,7 +5,7 @@ from fileinput import filename
 from django.shortcuts import render, redirect
 from .models import Ad
 import datetime
-
+from .models import Cart
 
 
 # Add the following import
@@ -34,7 +34,6 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
-
 
 #amazon bucket
 S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
@@ -92,12 +91,9 @@ def grow_create(request):
                        address = request.POST['address'],
                        city = request.POST['city'],
                        postal_code = request.POST['postal_code'],
-
-                       #how do i add the user id?
                        user = request.user
                        )
       
-    
      photo_file = request.FILES.get('photo-file',None)
      print(photo_file, "*****")
      if photo_file:
@@ -115,6 +111,17 @@ def grow_create(request):
             # we can assign to cat_id or cat (if you have a cat object)
         except:
             print('An error occurred uploading file to S3')
+     return redirect('/growurcoins') #redirect index page.
+
+#controller to add an Ad to a Cart
+def grow_add_to_cart(request, ad_id):
+     print("incoming ", request.POST)
+     mycart = Cart.objects.create(
+                        
+                        user = request.user,
+                        ad = Ad.objects.get(id = ad_id)
+                        )
+     print("Add has been added to the cart!!!") 
      return redirect('/growurcoins') #redirect index page.
 
 #controller to delete the Ad
