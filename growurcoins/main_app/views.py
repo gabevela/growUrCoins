@@ -123,6 +123,19 @@ def grow_add_to_cart(request, ad_id):
      print("Add has been added to the cart!!!") 
      return redirect('/growurcoins') #redirect index page.
 
+######-------------------------------------------------------
+#controller to view all items in Cart
+def grow_cart(request):                    
+    # print("user_id", request.user.id) 
+    # add_ids_in_cart = Cart.objects.filter(user_id = request.user.id)
+    # print(add_ids_in_cart)
+    # ad = Ad.objects.get(id=ad_id)
+    # print(ad)
+    # print("The ad to be rendered is", ad)
+    #return HttpResponse('testingggg')
+    return redirect('/growurcoins/cart.html') #redirect cart page.
+
+######------------------------------------------------------------
 #controller to delete the Ad
 def grow_delete(request, ad_id):
     ad = Ad.objects.get(id=ad_id)
