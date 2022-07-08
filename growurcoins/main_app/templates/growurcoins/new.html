@@ -1,30 +1,20 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Ad</title>
-  </head>
 
-  <body> -->
-    {% extends 'base.html' %} {% block content %}
+  {% extends 'base.html' %} 
+  {% block content %} 
 
-    <h6 class="green-text text-darken-3">Here is a form - Please Create your Ad:</h6>
+    <h6 class="green-text text-darken-3">Please Create your Ad:</h6>
     <form
       method="POST"
       action="/growurcoins/create"
-      enctype="multipart/form-data"
-    >
+      enctype="multipart/form-data">
+
       {% csrf_token %}
       <!-- making sure it is not a rando sending infor to your form data -->
       <br />
       <label for="ad_title">Ad Title: </label>
       <br />
-      <input
-        name="ad_title"
-        placeholder="Please enter the title of your ad"
-      /><br />
+      <input name="ad_title" placeholder="Please enter the title of your ad"/>
+      <br />
       <br />
 
       <label for="coins">Coins: </label>
@@ -67,8 +57,7 @@
       <br />
       <br />
       <br />
-      <p>
-      
+    
       <label for="category">Category: </label>
       <select name="category" id="category">
         <option value="P">Please choose an option</option>
@@ -80,7 +69,7 @@
         <option value="Kale">Kale</option>
         <option value="Tomatoes">Tomatoes</option>
       </select>
-      </p>
+      
       <label for="address">Address: </label>
       <br />
       <input name="address" placeholder="Please enter the address" />
@@ -109,8 +98,5 @@
 
       <button type="submit">Submit Ad</button>
     </form>
+
     {% endblock %}
-
-  <!-- </body> -->
-
-<!-- </html> -->

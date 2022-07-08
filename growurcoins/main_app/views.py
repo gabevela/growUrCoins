@@ -114,13 +114,12 @@ def grow_create(request):
      return redirect('/growurcoins') #redirect index page.
 
 #controller to add an Ad to a Cart
-def grow_add_to_cart(request):
+def grow_add_to_cart(request, ad_id):
      print("incoming ", request.POST)
      mycart = Cart.objects.create(
                         
                         user = request.user,
-                        ad = Ad.objects.get(id = 9)
-                        #ad = 9
+                        ad = Ad.objects.get(id = ad_id)
                         )
      print("Add has been added to the cart!!!") 
      return redirect('/growurcoins') #redirect index page.

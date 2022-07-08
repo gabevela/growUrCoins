@@ -26,7 +26,7 @@
 
     {% if user.is_authenticated %}
     <div class="card-action">
-      <a href="{% url 'add_to_cart' %}" class="green-text text-darken-3">Add To My Cart</a>      
+      <a href="{% url 'add_to_cart' ad.id %}" class="green-text text-darken-3">Add To My Cart</a>      
     </div>
     <div class="card-action">
       <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete Ad</a>     
