@@ -117,7 +117,6 @@ def grow_create(request):
 def grow_add_to_cart(request, ad_id):
      print("incoming ", request.POST)
      mycart = Cart.objects.create(
-                        
                         user = request.user,
                         ad = Ad.objects.get(id = ad_id)
                         )
