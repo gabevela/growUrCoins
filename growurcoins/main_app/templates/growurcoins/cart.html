@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
 <p>testing</p>
-
-{% endblock %}
+{%for ad in myads %}
+<p>Title: {{ ad.ad_title}}</p>
+{%endfor%} {% endblock %}
