@@ -1,42 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-
-<h6 class="green-text text-darken-3">My Cart</h6>
-
-<div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ ad.ad_title }}</span>
-
-    <p>Cuisine: {{ ad.coins}}</p>
-    <p>Description: {{ ad.description }}</p>
-    <p>Coins: {{ ad.coins }}</p>
-    <p>Description: {{ ad.description }}</p>
-    <p>Offer Date: {{ ad.offer_date }}</p>
-    <p>Expiry Date: {{ ad.expiry_date }}</p>
-    <p>Stock: {{ ad.stock_inventory }}</p>
-    <p>Category: {{ ad.category }}</p>
-    <p>Address: {{ ad.address }}</p>
-    <p>City: {{ ad.city }}</p>
-    <p>Postal Code: {{ ad.postal_code }}</p>
-
-    {% if user.is_authenticated %}
-    <div class="card-action">
-      <a href="{% url 'add_to_cart' %}" class="green-text text-darken-3">Add To My Cart</a>      
-    </div>
-    <br>
-    {% else %}
-    <p>Please Log In to Edit this Ad</p>
-    {% endif %}
-
-    {% for photo in ad.photo_set.all %}
-    <img class="responsive-img card-panel" src="{{photo.url}}" />
-    {% empty %}
-    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-    {% endfor %}
-
-    <div class="card-action">
-      <a href="{% url 'delete' ad.id %}" class="green-text text-darken-3">Delete Add</a>      
-    </div>
-  </div>
-</div>
+<h1>test</h1>
 
 {% endblock %}
