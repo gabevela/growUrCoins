@@ -133,7 +133,8 @@ def grow_cart(request):
     # print(ad)
     # print("The ad to be rendered is", ad)
     #return HttpResponse('testingggg')
-    return redirect('/growurcoins/cart.html') #redirect cart page.
+    return render(request, 'growurcoins/cart.html',  ) #redirect cart page.
+
 
 ######------------------------------------------------------------
 #controller to delete the Ad
