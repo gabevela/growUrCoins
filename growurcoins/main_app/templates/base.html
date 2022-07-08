@@ -24,36 +24,41 @@
       </div>
     </nav>
   </header>
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+  
+  <img class="responsive-img" src="{% static 'images/2.png' %}">
 
+  
   <ul id="slide-out" class="sidenav green-text text-darken-3">
     <li>
       <div class="user-view">
-        <div class="background">
-          <!-- <img src="https://imgur.com/9Rxz7ZO.png"> -->
-          <img src="{% static 'images/office.jpg' %}">
+        <div class="background">        
+          <img src="{% static 'images/2.png' %}">
         </div>
-        <!-- <a href="#user"><img class="circle" src="https://imgur.com/tHogCqP.png"></a> -->
+
         <a href="#user"><img class="circle" src="{% static 'images/tomatoes.jpg' %}"></a>
         <a href="#name"><span class="white-text name">User Name</span></a>
         <a href="#email"><span class="white-text email">User Email Address</span></a>
       </div>
     </li>
-    <li><a class="green-text text-darken-3" href="/about">About</a></li>
+  
     {% if user.is_authenticated %}
-    <li><a class="green-text text-darken-3" href="/growurcoins/home">Search by Categories</a></li>
     <li><a class="green-text text-darken-3" href="/growurcoins">Home</a></li>
     <li><a class="green-text text-darken-3" href="/growurcoins/new">Profile</a></li>
     <li><a class="green-text text-darken-3" href="/growurcoins/new">Post Ad</a></li>
+    <li><a class="green-text text-darken-3" href="/growurcoins/home">Search by Categories</a></li>
     <li><a class="green-text text-darken-3" href="/growurcoins/new">My Cart</a></li>
+    <li><a class="green-text text-darken-3" href="/about">About</a></li>
     <li><a class="green-text text-darken-3" href="{% url 'logout' %}">Log Out</a></li>
     {% else %}
     <li><a class="green-text text-darken-3" href="{% url 'signup' %}">Sign Up</a></li>
     <li><a class="green-text text-darken-3" href="{% url 'login' %}">Log In</a></li>
+  
     {% endif %}
   </ul>
 
   </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+
 
   <main class="container">
 
