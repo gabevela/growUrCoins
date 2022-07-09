@@ -8,8 +8,6 @@
     min-height: 100vh;
     flex-direction: column;
     background-color:#f0e6dc; 
-    /* background-image: url("../images/2.png"); */
-    background-image: url(“static/css/22.png”);
   }
   
   main {
@@ -32,6 +30,10 @@ h6 {
 }
 
 .container {
+  background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)) , url("../images/2.png");
   padding: 2rem;
   margin: 2rem;
+  
 }
+
+/* OPEN MAT */
