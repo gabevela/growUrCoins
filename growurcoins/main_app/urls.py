@@ -19,3 +19,4 @@ urlpatterns = [
  #path('growurcoins/thankyou', views.grow_thankyou, name='thankyou'), #this will checkout the cart   
 
 ]
+
