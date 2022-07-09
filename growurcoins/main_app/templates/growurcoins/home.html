@@ -1,7 +1,5 @@
-{% extends 'base.html' %} {% block content %}
-
-<h1>Home</h1>
-{% for category in listCategories %}
+{% extends 'base.html' %} {% block content %} {% for category in listCategories
+%}
 <a href="/growurcoins/listing/{{category}}">
   <div class="card">
     <div class="card-content">

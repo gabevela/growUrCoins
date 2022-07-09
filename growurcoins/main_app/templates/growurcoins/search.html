@@ -1,22 +1,26 @@
 {% extends 'base.html' %} {% block content %}
 
 <h6 class="green-text text-darken-3">View All the Ad Listings</h6>
+
 <form method="POST" action="{% url 'search' %}">
   {% csrf_token %}
   <div class="input-field searchbar">
     <input
-      class="search--input"
       id="search"
       type="search"
       required
       name="search"
+      value="{{searched}}"
+      placeholder="Search"
+      class="search--input"
     />
 
     <!-- <i class="material-icons pink-text ">close</i> -->
     <button class="search--button" type="submit">Search</button>
   </div>
 </form>
-{% for Ad in ad %}
+
+{% for Ad in Ads %}
 <div class="card">
   <div class="card-content">
     <a href="/growurcoins/{{ Ad.id }}">

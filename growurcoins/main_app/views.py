@@ -191,6 +191,15 @@ def grow_delete_cart(request, ):
     
     return redirect('/growurcoins') #redirect index page.
 
+def grow_search(request):
+    if request.method == 'POST':
+        searched = request.POST['search']
+        Ads = Ad.objects.filter(ad_title__contains=searched)
+        return render(request, 'growurcoins/search.html', {'searched': searched, 'Ads': Ads})
+    else:
+        return redirect('/growurcoins/home') #redirect home page.
+
+    
 #####---------
 
     # def grow_delete(request, ad_id):
