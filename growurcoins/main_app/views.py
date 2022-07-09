@@ -168,4 +168,32 @@ def grow_checkout(request,):
     total_coins = sum(ad_coins)
     print(total_coins)
 
-    return render(request, 'growurcoins/thankyou.html')
+
+    return render(request, 'growurcoins/thankyou.html', {"total_coins" : total_coins }  )
+
+def grow_delete_cart(request, ):
+    print("going back to home menu") 
+    print("user_id", request.user.id) 
+    add_ids_in_cart = Cart.objects.filter(user_id = request.user.id)
+    myads = []
+    
+    for item in add_ids_in_cart:
+        myads.append(Ad.objects.get(id=item.ad_id))
+        print("_______________")
+        print(item.ad_id)
+
+    for ad in add_ids_in_cart:
+        delete_ad = Ad.objects.get(id=ad.ad_id)
+        delete_ad.delete()
+        print(ad.ad_id)
+
+    print(myads)
+    
+    return redirect('/growurcoins') #redirect index page.
+
+#####---------
+
+    # def grow_delete(request, ad_id):
+    # ad = Ad.objects.get(id=ad_id)
+    # ad.delete()
+    # return render(request, 'growurcoins/delete.html', {"ad": ad})

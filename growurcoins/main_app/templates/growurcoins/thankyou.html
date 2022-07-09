@@ -1,13 +1,14 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<p>Thank you for your order</p>
+<p>Thank you for your order, your total was  ${{  total_coins   }}</p>
 <br>
 <br>
+  <button>
     {% csrf_token %}
      <!-- <button>Delete</button> -->
-     <a class="green-text text-darken-3" href="{% url 'index' %}">Click here to go to the ad listings</a>  
-     
+     <a class="green-text text-darken-3" href="{% url 'delete_cart' %}">Click here to go back to the ad listings</a>  
+    </button>   
    </form>
 
 {% endblock %}
