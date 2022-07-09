@@ -17,5 +17,8 @@ urlpatterns = [
  path('growurcoins/cart', views.grow_cart, name='cart'), #this will take us to the cart  
  path('growurcoins/checkout', views.grow_checkout, name='checkout'), #this will checkout the cart
  path('growurcoins/delete_cart', views.grow_delete_cart, name='delete_cart'), #this will delete the cart
+ path('growurcoins/search', views.grow_search, name='search'),
+
+
  
 ]

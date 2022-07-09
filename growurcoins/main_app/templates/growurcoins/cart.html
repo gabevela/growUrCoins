@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <h6 class="green-text text-darken-3">My Cart</h6>
-{%for ad in myads %}
+
 <div class="card">
+  {%for ad in myads %}
   <div class="card-content">
     <span class="card-title">{{ ad.ad_title }}</span>
 
@@ -18,15 +19,10 @@
     <p>Postal Code: {{ ad.postal_code }}</p>
     {% for photo in ad.photo_set.all %}
     <img class="responsive-img card-panel" src="{{photo.url}}" />
-    {% empty %}
-    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-    {% endfor %} {%endfor%}{% if user.is_authenticated %}
-    <div class="card-action">
-      <a href="{% url 'checkout' %}" class="green-text text-darken-3"
-        >checkout</a
-      >
-
-      {% endif %}{% endblock %}
-    </div>
+    {% empty %} {% endfor %}{% endfor %} {% if user.is_authenticated %}
   </div>
 </div>
+<div class="card-action">
+  <a href="{% url 'checkout' %}" class="green-text text-darken-3">checkout</a>
+</div>
+{% endif %}{% endblock %}
