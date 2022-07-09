@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% block content %} {% for category in listCategories
-%}
+{% extends 'base.html' %} {% block content %} {% for category in listCategories%}
 <a href="/growurcoins/listing/{{category}}">
   <div class="card">
     <div class="card-content">
@@ -7,4 +6,4 @@
     </div>
   </div>
 </a>
-{%endfor%} {% endblock %}
+{% endfor %} {% endblock %}
