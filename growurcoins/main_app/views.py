@@ -126,24 +126,12 @@ def grow_add_to_cart(request, ad_id):
 ######-------------------------------------------------------
 #controller to view all items in Cart
 def grow_cart(request):                    
-    #print("user_id", request.user.id) 
-    # add_ids_in_cart = Cart.objects.filter(user_id = request.user.id)
-    # print(add_ids_in_cart)
-    # ad = Ad.objects.get(id=ad_id)
-    # print(ad)
-    # print("The ad to be rendered is", ad)
-    #return HttpResponse('testingggg')
-    return render(request, 'growurcoins/cart.html',  ) #redirect cart page.
+    add_ids_in_cart = Cart.objects.filter(user_id = request.user.id)
+    myads = []
+    for item in add_ids_in_cart:
+        myads.append(Ad.objects.get(id=item.ad_id))
 
-def grow_checkout(request):                    
-    #print("user_id", request.user.id) 
-    # add_ids_in_cart = Cart.objects.filter(user_id = request.user.id)
-    # print(add_ids_in_cart)
-    # ad = Ad.objects.get(id=ad_id)
-    # print(ad)
-    # print("The ad to be rendered is", ad)
-    #return HttpResponse('testingggg')
-    return render(request, 'growurcoins/thankyou.html',  ) #redirect cart page.
+    return render(request, 'growurcoins/cart.html', {"myads": myads} ) #redirect cart page.
 
 ######------------------------------------------------------------
 #controller to delete the Ad
@@ -164,3 +152,20 @@ def grow_home(request,):
     print(listCategories)
     return render(request, 'growurcoins/home.html',{"listCategories" : listCategories})
 
+def grow_checkout(request,):
+    print("user_id", request.user.id) 
+    add_ids_in_cart = Cart.objects.filter(user_id = request.user.id)
+    myads = []
+    
+    for item in add_ids_in_cart:
+        myads.append(Ad.objects.get(id=item.ad_id))
+        
+    print(myads)
+    ad_coins = [] 
+    for ad in myads:
+        ad_coins.append(ad.coins)
+        print(ad.coins)
+    total_coins = sum(ad_coins)
+    print(total_coins)
+
+    return render(request, 'growurcoins/thankyou.html')
