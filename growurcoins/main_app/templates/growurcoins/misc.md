@@ -33,3 +33,5 @@ welcome abord
   </body> 
 
 </html>
+
+  <!-- <img class="responsive-img" src="{% static 'images/2.png' %}"> -->
