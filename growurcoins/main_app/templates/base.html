@@ -24,21 +24,19 @@
       </div>
     </nav>
   </header>
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
-  
-
-
-  
+  <br>
+  <a href="#" id="menu_title" data-target="slide-out" class="btn-floating btn-large pulse sidenav-trigger green"><i class="material-icons">Menu</i></a>
+    
   <ul id="slide-out" class="sidenav green-text text-darken-3">
     <li>
       <div class="user-view">
         <div class="background">        
           <img src="{% static 'images/2.png' %}">
         </div>
-
-        <a href="#user"><img class="circle" src="{% static 'images/tomatoes.jpg' %}"></a>
-        <a href="#name"><span class="white-text name">User Name</span></a>
-        <a href="#email"><span class="white-text email">User Email Address</span></a>
+        <div>
+        <a href="#user"><img  class="circle" src="{% static 'images/farmers.png' %}"></a>
+        <a href="#name"><span  class="white-text name">Hello {{ user.username }}!   </span></a><br>
+      </div>
       </div>
     </li>
   
