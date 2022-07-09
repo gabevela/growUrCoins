@@ -1,6 +1,32 @@
 {% extends 'base.html' %} {% block content %}
-
-<p>testing</p>
+<h6 class="green-text text-darken-3">My Cart</h6>
 {%for ad in myads %}
-<p>Title: {{ ad.ad_title}}</p>
-{%endfor%} {% endblock %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ ad.ad_title }}</span>
+
+    <p>Cuisine: {{ ad.coins}}</p>
+    <p>Description: {{ ad.description }}</p>
+    <p>Coins: {{ ad.coins }}</p>
+    <p>Description: {{ ad.description }}</p>
+    <p>Offer Date: {{ ad.offer_date }}</p>
+    <p>Expiry Date: {{ ad.expiry_date }}</p>
+    <p>Stock: {{ ad.stock_inventory }}</p>
+    <p>Category: {{ ad.category }}</p>
+    <p>Address: {{ ad.address }}</p>
+    <p>City: {{ ad.city }}</p>
+    <p>Postal Code: {{ ad.postal_code }}</p>
+    {% for photo in ad.photo_set.all %}
+    <img class="responsive-img card-panel" src="{{photo.url}}" />
+    {% empty %}
+    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+    {% endfor %} {%endfor%}{% if user.is_authenticated %}
+    <div class="card-action">
+      <a href="{% url 'checkout'%}" class="green-text text-darken-3"
+        >checkout</a
+      >
+
+      {% endif %}{% endblock %}
+    </div>
+  </div>
+</div>
