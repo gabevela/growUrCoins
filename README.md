@@ -3,28 +3,21 @@
 ![clone](https://imgur.com/IA5Qmue.png)
 <br><br>
 
-## We do not own the music, sounds or images in this app, credits go to the respective author/owner.
-
-<br>
-<br><br>
-
-## Welcome to my ReadMe File for Grow Ur Coins!  
+## Welcome to the ReadMe File for Grow Ur Coins, a marketplace for families who have a home garden and wish to exchange their home grown goodies for coins!!  
 
 <br><br>
 
-![clone](https://imgur.com/O2VXPV5.png)
+![clone](https://imgur.com/Ta9hluK.png)
 
 <br>
 
-### Play Shark Attack now! <em><a href="https://gabevela.github.io/sei-project-one/indexMain.html">Click here</a>.</em> 
+### Visit GrowUrCoins on Heroku now! <em><a href="https://growurcoins.herokuapp.com/growurcoins/">Click here</a>.</em> 
 
-### Link to the project's GitHub repo can be found <em><a href="https://github.com/gabevela/sei-project-one">here</a>.</em>
-
-### Project # 1 code review and requirements can be found <em><a href="https://git.generalassemb.ly/sei-toronto/sei-flex-49/blob/master/project-1/project-1-requirements.md">here</a>.</em> 
+### Link to the project's GitHub repo can be found <em><a href="https://github.com/gabevela/growUrCoins">here</a>.</em>
 
 <br><br>
 
-![clone](https://imgur.com/uInYrtk.png)
+![clone](https://imgur.com/0th3DaT.png)
 
 <br><br>
 
