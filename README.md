@@ -1,6 +1,6 @@
 # Grow Ur Coins! - An urban gardener's marketplace by Ruchita, Colin & Gabe
 
-![clone](https://imgur.com/wg8AVn1.png)
+![clone](https://imgur.com/NRMmoPi.png)
 <br><br>
 
 ## We do not own the music, sounds or images in this app, credits go to the respective author/owner.
